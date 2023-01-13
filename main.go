@@ -33,9 +33,9 @@ func main() {
 		fields := strings.Fields(line)
 		if len(fields) >= 3 {
 			newRecord := DNSRecord{
-				Domain:  fields[0],
+				Domain:  strings.TrimSuffix(fields[0], "."),
 				Type:    fields[1],
-				Records: fields[2],
+				Records: strings.TrimSuffix(fields[2], "."),
 			}
 			dmnRecords = append(dmnRecords, newRecord)
 		}
